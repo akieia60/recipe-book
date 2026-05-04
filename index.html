@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Recipes" />
+  <meta name="apple-mobile-web-app-title" content="A.K.'s Eats" />
   <link rel="apple-touch-icon" id="apple-icon" />
-  <title>My Personal Recipe Book</title>
+  <title>A.K.'s Eats</title>
   <script>
     // Generates a beautiful navy + gold home screen icon
     (function() {
@@ -55,18 +55,18 @@
       ctx.fillRect(-5, -5, 10, 10);
       ctx.restore();
 
-      // ── "MY" small caps text ──
+      // ── "A.K.'s" small caps text ──
       ctx.fillStyle = 'rgba(212,175,55,0.8)';
       ctx.font = '500 13px Georgia';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('MY', SIZE/2, 75);
+      ctx.fillText("A.K.'s", SIZE/2, 75);
 
-      // ── "Recipes" main text ──
+      // ── "Eats" main text ──
       ctx.fillStyle = '#D4AF37';
-      ctx.font = 'italic bold 36px Georgia';
+      ctx.font = 'italic bold 42px Georgia';
       ctx.textBaseline = 'middle';
-      ctx.fillText('Recipes', SIZE/2, 105);
+      ctx.fillText('Eats', SIZE/2, 105);
 
       // ── Bottom ornament line ──
       ctx.strokeStyle = '#D4AF37';
@@ -420,7 +420,7 @@
 <!-- HEADER -->
 <div class="site-header">
   <button class="back-btn" id="backBtn" onclick="showHome()">All Recipes</button>
-  <h1 id="headerTitle">My Recipe Book</h1>
+  <h1 id="headerTitle">A.K.'s Eats</h1>
   <p id="headerSub">10 personal recipes</p>
 </div>
 
@@ -851,7 +851,7 @@ function showHome() {
   document.getElementById('home-view').style.display = 'block';
   document.getElementById('recipe-view').style.display = 'none';
   document.getElementById('backBtn').style.display = 'none';
-  document.getElementById('headerTitle').textContent = 'My Recipe Book';
+  document.getElementById('headerTitle').textContent = "A.K.'s Eats";
   renderCards();
   activeRecipe = null;
 }
