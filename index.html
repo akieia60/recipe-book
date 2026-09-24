@@ -421,7 +421,7 @@
 <div class="site-header">
   <button class="back-btn" id="backBtn" onclick="showHome()">All Recipes</button>
   <h1 id="headerTitle">A.K.'s Eats</h1>
-  <p id="headerSub">10 personal recipes</p>
+  <p id="headerSub">11 personal recipes</p>
 </div>
 
 <!-- HOME VIEW -->
@@ -533,7 +533,44 @@ const recipes = [
     note: "Let rest 10 minutes before serving."
   },
 
-  // ── 3. NINJA AIR RIBS (OVEN) ─────────────────
+  // ── 3. LOBSTER MAC AND CHEESE (OVEN) ─────────
+  {
+    cookType: 'oven',
+    emoji: '🦞',
+    cardTag: 'Oven · ~45 min · Stovetop + bake',
+    image: '/images/lobster-mac-cheese.jpeg',
+    title: "Decadent Butter-Poached Lobster Mac and Cheese",
+    shopping: [
+      { group: "Seafood", items: ["1 to 1½ lbs cooked lobster meat (claw & tail) or 4 lobster tails"] },
+      { group: "Dairy & Cheese", items: ["6 tbsp unsalted butter","2½ cups whole milk","1 cup heavy cream","2 cups Gruyère cheese, grated","1½ cups sharp white cheddar or fontina","½ cup parmesan, grated","2 oz cream cheese"] },
+      { group: "Produce & Herbs", items: ["3 cloves garlic","1 shallot","Fresh chives","Fresh thyme","½ lemon"] },
+      { group: "Pantry", items: ["1 lb cavatappi or cellentani pasta","⅓ cup all-purpose flour","1 tsp Dijon mustard","1 tsp garlic powder","½ tsp smoked paprika","¼ tsp ground nutmeg","Pinch cayenne","1 cup panko breadcrumbs","Kosher salt and black pepper"] }
+    ],
+    ingredients: [
+      { group: "Pasta", items: ["1 lb cavatappi or cellentani pasta"] },
+      { group: "Butter-Poached Lobster", items: ["1 to 1½ lbs fresh lobster meat (claw and tail cut into bite-sized chunks)","2 tbsp unsalted butter","1 clove garlic, minced","Squeeze of fresh lemon juice","Pinch of salt and black pepper"] },
+      { group: "Velvety Mornay Cheese Sauce", items: ["4 tbsp unsalted butter","1 small shallot, finely minced","2 cloves garlic, minced","⅓ cup all-purpose flour","2½ cups warm whole milk","1 cup warm heavy cream","2 oz cream cheese (for velvety smoothness)","2 cups Gruyère cheese, freshly shredded","1½ cups sharp white cheddar or fontina, freshly shredded","½ cup freshly grated parmesan","1 tsp Dijon mustard","1 tsp garlic powder","½ tsp smoked paprika","¼ tsp ground nutmeg","Pinch of cayenne pepper","Kosher salt and cracked black pepper to taste"] },
+      { group: "Crispy Herb Crust", items: ["1 cup panko breadcrumbs","2 tbsp melted butter","¼ cup parmesan, grated","1 tbsp fresh chives, finely chopped","1 tsp fresh thyme leaves","Pinch of smoked paprika"] }
+    ],
+    steps: [
+      "Preheat oven to 375°F (190°C) and butter a 9x13-inch baking dish or 12-inch cast iron skillet.",
+      "Boil cavatappi pasta in salted water until 1 minute shy of al dente. Drain and toss lightly with olive oil. Do not rinse.",
+      "Melt 2 tbsp butter in a skillet over medium-low heat with 1 clove minced garlic. Add lobster chunks and warm gently for 2 to 3 minutes with lemon juice, salt, and pepper. Remove immediately from heat to keep lobster tender.",
+      "In a Dutch oven or large pot, melt 4 tbsp butter over medium heat. Sauté minced shallot until soft (2 minutes), then add minced garlic and cook 30 seconds.",
+      "Whisk in flour and cook 1 to 2 minutes to eliminate raw flour taste.",
+      "Gradually whisk in warm milk and heavy cream. Simmer over medium heat, whisking constantly until sauce thickens enough to coat a spoon (4 to 5 minutes).",
+      "Lower heat. Whisk in cream cheese, Dijon mustard, garlic powder, smoked paprika, nutmeg, cayenne, salt, and black pepper until completely smooth.",
+      "Remove pot from heat. Gradually fold in Gruyère, white cheddar, and parmesan in batches until melted into a luxurious cheese sauce.",
+      "Fold pasta into cheese sauce until fully coated, then gently fold in ¾ of the butter-poached lobster and pan juices.",
+      "Transfer mac and cheese into prepared baking dish or skillet. Nestle remaining lobster pieces across the top.",
+      "Toss panko breadcrumbs with melted butter, parmesan, thyme, and a pinch of paprika. Scatter evenly over top.",
+      "Bake at 375°F for 18 to 20 minutes until bubbly. Broil on high for 2 to 3 minutes for a golden, crunchy crust (watch carefully).",
+      "Rest 10 minutes, garnish with fresh chopped chives and cracked pepper, and serve hot."
+    ],
+    note: "Always shred blocks of cheese fresh from the block — bagged pre-shredded cheese contains anti-caking starches that make melted cheese grainy. Be gentle warming the lobster; it finishes baking in the oven."
+  },
+
+  // ── 4. NINJA AIR RIBS (OVEN) ─────────────────
   {
     cookType: 'oven',
     emoji: '🍖',
@@ -561,7 +598,7 @@ const recipes = [
     note: "Optional finish: Brush with melted garlic butter or spoon pan drippings over top."
   },
 
-  // ── 4. RED WINE SHORT RIBS (OVEN) ────────────
+  // ── 5. RED WINE SHORT RIBS (OVEN) ────────────
   {
     cookType: 'oven',
     emoji: '🍷',
@@ -591,7 +628,7 @@ const recipes = [
     note: "This dish pairs wonderfully with creamy mashed potatoes, polenta, or egg noodles."
   },
 
-  // ── 5. SHERRY-GLAZED RIBS (OVEN) ─────────────
+  // ── 6. SHERRY-GLAZED RIBS (OVEN) ─────────────
   {
     cookType: 'oven',
     emoji: '✨',
@@ -619,7 +656,7 @@ const recipes = [
     note: "These ribs are delicious with a side of roasted vegetables or a simple rice pilaf."
   },
 
-  // ── 6. CHARCOAL CHUCK ROAST (GRILL) ──────────
+  // ── 7. CHARCOAL CHUCK ROAST (GRILL) ──────────
   {
     cookType: 'grill',
     emoji: '🔥',
@@ -653,7 +690,7 @@ const recipes = [
     note: "For extra smoke flavor, skip covering the grill for the first 30 minutes, then lid on for the rest of the cook."
   },
 
-  // ── 7. CHARCOAL SMOKED MAC & CHEESE (GRILL) ──
+  // ── 8. CHARCOAL SMOKED MAC & CHEESE (GRILL) ──
   {
     cookType: 'grill',
     emoji: '🧀',
@@ -684,7 +721,7 @@ const recipes = [
     note: "For extra char-kissed flavor, finish 3–4 minutes on the hot side with the lid open — watch closely."
   },
 
-  // ── 8. CHARCOAL FLAVOR BOMB RIBS (GRILL) ─────
+  // ── 9. CHARCOAL FLAVOR BOMB RIBS (GRILL) ─────
   {
     cookType: 'grill',
     emoji: '🍖',
@@ -717,7 +754,7 @@ const recipes = [
     note: "The bend test never lies. Don't rush it — ribs that take 6 hours are always better than 4-hour ribs."
   },
 
-  // ── 9. CHARCOAL SMOKED BEEF SHORT RIBS (GRILL)
+  // ── 10. CHARCOAL SMOKED BEEF SHORT RIBS (GRILL)
   {
     cookType: 'grill',
     emoji: '🦴',
@@ -747,7 +784,7 @@ const recipes = [
     note: "Post oak is traditional Texas BBQ for beef. If you can find it, use it. The flavor is in a completely different league."
   },
 
-  // ── 10. CHARCOAL SHERRY-GLAZED RIBS (GRILL) ──
+  // ── 11. CHARCOAL SHERRY-GLAZED RIBS (GRILL) ──
   {
     cookType: 'grill',
     emoji: '✨',
