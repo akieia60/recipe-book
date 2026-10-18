@@ -246,6 +246,29 @@
     }
     .method-badge.oven  { background: #fff3e0; color: #c8720a; border: 1px solid #f5c890; }
     .method-badge.grill { background: #3a1a06; color: #f5c890; border: 1px solid #6b3a1f; }
+    .method-badge.stove { background: #eef4ec; color: #3f6b2a; border: 1px solid #b9d3a8; }
+
+    /* Extra step photos under the main photo */
+    .recipe-gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 16px 4px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .recipe-gallery figure {
+      flex: 0 0 78%;
+      max-width: 340px;
+      margin: 0;
+      scroll-snap-align: start;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(92,46,0,0.12);
+    }
+    .recipe-gallery img { width: 100%; height: 150px; object-fit: cover; display: block; }
+    .recipe-gallery figcaption { padding: 8px 10px; font-size: 0.78rem; color: #5c2e00; line-height: 1.4; }
 
     /* ── RECIPE DETAIL VIEW ── */
     #recipe-view { display: none; }
@@ -431,6 +454,7 @@
   <div class="method-filter">
     <button class="method-btn active" onclick="setMethod('all')">🍽 All</button>
     <button class="method-btn" onclick="setMethod('oven')">🔥 Oven &amp; Air Fryer</button>
+    <button class="method-btn" onclick="setMethod('stovetop')">🍲 Stovetop</button>
     <button class="method-btn grill-btn" onclick="setMethod('grill')">🪵 Charcoal Grill</button>
   </div>
 
@@ -568,6 +592,51 @@ const recipes = [
       "Rest 10 minutes, garnish with fresh chopped chives and cracked pepper, and serve hot."
     ],
     note: "Always shred blocks of cheese fresh from the block — bagged pre-shredded cheese contains anti-caking starches that make melted cheese grainy. Be gentle warming the lobster; it finishes baking in the oven."
+  },
+
+  // ── 3b. SEAFOOD GUMBO — NO PORK (STOVETOP) ───
+  {
+    cookType: 'stovetop',
+    emoji: '🦐',
+    cardTag: 'Stovetop · ~3 hrs · Dutch oven + stockpot · Serves 8–10 · No pork',
+    image: '/images/seafood-gumbo.jpeg',
+    gallery: [
+      { src: '/images/seafood-gumbo-prep.jpeg', caption: 'Mise en place: everything chopped and measured BEFORE the roux starts.' },
+      { src: '/images/seafood-gumbo-roux.jpeg', caption: 'The target: a smooth, dark-chocolate roux. Black specks = burned, start over.' }
+    ],
+    title: "Dark Roux Gulf Seafood Gumbo (No Pork)",
+    shopping: [
+      { group: "Seafood", items: ["3 lbs large HEAD-ON shrimp (16–20 count) — or 2½ lbs shell-on if you can't find head-on","4 fresh blue crabs, cleaned & halved — or 1 lb crab claws","1 lb jumbo lump crab meat","1 pint freshly shucked oysters WITH their liquid (liquor)"] },
+      { group: "Produce", items: ["3 large yellow onions","2 large green bell peppers","1 bunch celery","2 heads garlic","1 lb fresh okra (or frozen sliced okra)","1 carrot (for stock)","1 bunch green onions","1 bunch flat-leaf parsley","1 small bunch fresh thyme","1 lemon"] },
+      { group: "Pantry & Spices", items: ["1 cup + 3 tbsp peanut, canola or avocado oil","1 cup all-purpose flour","Kosher salt","Black peppercorns + ground black pepper","Ground white pepper","Cayenne pepper","Smoked paprika","Sweet paprika","Garlic powder","Onion powder","Dried thyme","Dried oregano","4 bay leaves","Worcestershire sauce","Louisiana hot sauce (Crystal or Tabasco)","Filé powder","3 cups Louisiana long-grain white rice"] },
+      { group: "Shortcut Backup (optional)", items: ["2 bottles (8 oz) clam juice — only if using shell-on shrimp without heads"] }
+    ],
+    ingredients: [
+      { group: "Rich Seafood Stock (the secret)", items: ["Shells and heads from all the shrimp","Top shells & legs from the blue crabs (if using)","1 tbsp oil","1 onion, quartered (skin on is fine)","2 celery ribs + leaves, roughly chopped","1 carrot, roughly chopped","½ head garlic, smashed","2 bay leaves","1 tsp black peppercorns","Handful of parsley stems + 3 thyme sprigs","3½ quarts cold water"] },
+      { group: "Dark Roux", items: ["1 cup peanut, canola or avocado oil (NO bacon fat, NO lard)","1 cup all-purpose flour"] },
+      { group: "Holy Trinity & Aromatics", items: ["2 large yellow onions, finely diced (about 4 cups)","2 large green bell peppers, diced (about 2 cups)","4 celery ribs, diced (about 2 cups)","8 cloves garlic, minced"] },
+      { group: "House Creole Spice Blend (pork-free)", items: ["1 tbsp smoked paprika","2 tsp sweet paprika","2 tsp kosher salt (more to taste at the end)","1 tsp black pepper","½ tsp white pepper","1 tsp cayenne (½ tsp for milder)","1 tsp garlic powder","1 tsp onion powder","1 tsp dried thyme","1 tsp dried oregano"] },
+      { group: "Gumbo Body", items: ["1 lb okra, sliced into ½-inch coins","2 tbsp oil (for the okra)","2 bay leaves","4 sprigs fresh thyme","1 tbsp Worcestershire sauce","1–2 tsp Louisiana hot sauce"] },
+      { group: "The Seafood (goes in LAST)", items: ["Peeled, deveined shrimp from above","4 blue crab halves or 1 lb crab claws","1 pint shucked oysters + their liquor","1 lb jumbo lump crab meat, picked over for shell"] },
+      { group: "Finish & Serve", items: ["1 cup green onions, thinly sliced","½ cup flat-leaf parsley, chopped","Juice of ½ lemon","Filé powder (for the table)","Hot cooked long-grain white rice"] }
+    ],
+    steps: [
+      "PREP THE SHRIMP: Twist off the heads and peel the shrimp — SAVE every head and shell in a bowl (that's free flavor). Devein the shrimp, pat dry, sprinkle with a pinch of salt and cayenne, and refrigerate.",
+      "TOAST THE SHELLS: In a big stockpot, heat 1 tbsp oil over medium-high. Add the shrimp heads, shells and crab top shells. Stir 3–4 minutes until they turn bright pink and smell sweet and toasty. Toasting = deeper, restaurant-level flavor.",
+      "MAKE THE STOCK: Add the quartered onion, celery, carrot, smashed garlic, bay leaves, peppercorns, parsley stems, thyme and 3½ quarts COLD water. Bring to a gentle simmer (small lazy bubbles, never a hard boil) and cook uncovered 45 minutes. Don't go longer — seafood shells turn bitter. Strain through a fine sieve, pressing the shells. You want about 3 quarts. Keep it hot on a back burner. (No head-on shrimp? Use the shells you have plus 2 bottles of clam juice.)",
+      "COOK THE OKRA: In a skillet, heat 2 tbsp oil over medium-high. Add the okra and cook, stirring now and then, 12–15 minutes until lightly browned and no longer slimy. Set aside. Pre-cooking okra is the chef trick that gives silky body instead of slime.",
+      "SET UP YOUR STATION: Dice the trinity (onion, bell pepper, celery) and mince the garlic. Mix the Creole spice blend in a small bowl. Put everything right next to the stove. Once the roux starts, you CANNOT walk away.",
+      "START THE ROUX: In a heavy 7–8 qt Dutch oven over medium heat, warm 1 cup oil for 1 minute. Whisk in 1 cup flour until smooth. Switch to a flat-edged wooden spoon and stir constantly, scraping the whole bottom, in figure-eights.",
+      "TAKE IT DARK: Lower to medium-low and keep stirring 45–60 minutes. The color goes: peanut butter (~15 min) → copper penny (~25 min) → milk chocolate (~35 min) → DARK CHOCOLATE (45–60 min). It should smell nutty and toasty. If you see black specks or it smells acrid, it's burned — toss it and start over (every Louisiana cook has done it). Careful: roux is extremely hot; don't splash it on skin.",
+      "ADD THE TRINITY: Dump in the onion, bell pepper and celery all at once — this stops the roux from darkening further. Stir 8–10 minutes until the vegetables are soft and melted into the roux. Add the garlic for 1 minute, then the Creole spice blend for 1 minute to wake up the spices.",
+      "ADD THE STOCK SLOWLY: Ladle in hot stock ONE ladle at a time, stirring hard after each, for the first 4 cups. Adding it slowly is what keeps it smooth and lump-free. Then pour in the rest of the stock.",
+      "SIMMER: Add the cooked okra, bay leaves, thyme sprigs and Worcestershire. Bring to a boil, then lower to a gentle simmer. Cook uncovered 1 to 1½ hours, stirring every 10 minutes and skimming off the oil and foam that rise to the top with a ladle. Skimming = a clean, glossy, refined gumbo.",
+      "TASTE AND SEASON BOLDLY: The finished base should lightly coat the back of a spoon (like a thin gravy, not a thick stew). Fish out the bay leaves and thyme stems. Taste and adjust salt, cayenne and hot sauce. Season a little stronger than you think — the seafood will mellow it.",
+      "ADD THE SEAFOOD IN ORDER (the most important timing): Crab halves or claws first — simmer 8–10 minutes. Then the shrimp — 3 to 4 minutes, just until pink and curled into a 'C' (an 'O' shape means overcooked). Then the oysters with all their liquor — 1 to 2 minutes, just until the edges curl. TURN OFF THE HEAT.",
+      "FINISH OFF THE HEAT: Gently fold in the lump crab meat (don't break up the lumps), the green onions, parsley and lemon juice. Cover and rest 10 minutes — the heat in the pot finishes the seafood perfectly.",
+      "PLATE IT LIKE A RESTAURANT: Warm shallow bowls. Pack rice into a small cup and turn it out in the center of each bowl. Ladle gumbo AROUND the rice, making sure every bowl gets shrimp, crab and an oyster. Top with a sprinkle of filé powder and green onions. Put filé and hot sauce on the table."
+    ],
+    note: "Make-ahead secret: gumbo tastes even better the next day — but seafood gets rubbery when reheated. So make everything through step 11 the day before, refrigerate the base, then reheat and add the seafood and plate (steps 12–14) right before serving. NEVER boil filé powder; it turns stringy — add it to bowls only. Want a smoky note? Add smoked turkey sausage or chicken andouille at the simmer step, but READ THE LABEL: some poultry sausages use pork casings or pork fat. Classic Louisiana side: a scoop of potato salad right in the bowl."
   },
 
   // ── 4. NINJA AIR RIBS (OVEN) ─────────────────
@@ -834,7 +903,7 @@ function setMethod(m) {
 
   // update button styles
   document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
-  const methods = ['all','oven','grill'];
+  const methods = ['all','oven','stovetop','grill'];
   document.querySelectorAll('.method-btn')[methods.indexOf(m)].classList.add('active');
 
   renderCards();
@@ -852,8 +921,9 @@ function renderCards() {
     if (activeMethod !== 'all' && r.cookType !== activeMethod) return;
     visible++;
     const isGrill = r.cookType === 'grill';
-    const badgeClass = isGrill ? 'method-badge grill' : 'method-badge oven';
-    const badgeText = isGrill ? '🪵 Charcoal Grill' : '🔥 Oven / Air Fryer';
+    const isStove = r.cookType === 'stovetop';
+    const badgeClass = isGrill ? 'method-badge grill' : isStove ? 'method-badge stove' : 'method-badge oven';
+    const badgeText = isGrill ? '🪵 Charcoal Grill' : isStove ? '🍲 Stovetop' : '🔥 Oven / Air Fryer';
     const cardClass = isGrill ? 'recipe-card grill' : 'recipe-card';
 
     const imgSection = r.image
@@ -908,6 +978,11 @@ function showRecipe(index) {
   const heroBox = document.getElementById('recipe-hero-box');
   if (r.image) {
     heroBox.innerHTML = `<div class="recipe-hero"><img src="${r.image}" alt="${r.title}" /></div>`;
+    if (r.gallery && r.gallery.length) {
+      heroBox.innerHTML += `<div class="recipe-gallery">` +
+        r.gallery.map(g => `<figure><img src="${g.src}" alt="${g.caption}" loading="lazy" /><figcaption>${g.caption}</figcaption></figure>`).join('') +
+        `</div>`;
+    }
   } else {
     heroBox.innerHTML = '';
   }
