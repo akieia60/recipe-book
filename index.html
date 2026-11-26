@@ -282,6 +282,12 @@
     .recipe-title-bar h2 { font-size: 1.15rem; line-height: 1.4; }
 
     /* ── GRILL TIP BOX ── */
+    .calc-box { background:#fff5ec; border:1px solid #e8c99a; border-radius:10px; padding:12px 14px; margin:12px 16px; color:#5c2e00; font-size:0.85rem; }
+    .calc-box strong.calc-h { display:block; margin-bottom:6px; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:#c8720a; }
+    .calc-box input[type=range] { width:100%; accent-color:#c8720a; }
+    .calc-row { display:flex; justify-content:space-between; gap:10px; padding:4px 0; border-top:1px dashed #e8c99a; }
+    .calc-row b { color:#3a1a00; text-align:right; }
+    .calc-foot { font-size:0.75rem; font-style:italic; color:#9b6530; margin-top:6px; }
     .grill-tip {
       background: #3a1a06;
       color: #f5c890;
@@ -475,6 +481,7 @@
 
   <div id="recipe-hero-box"></div>
   <div id="grill-setup-box"></div>
+  <div id="calc-box"></div>
 
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('shopping')">🛒 Shopping List</button>
@@ -598,8 +605,9 @@ const recipes = [
   {
     cookType: 'oven',
     emoji: '🥩',
-    cardTag: 'Oven · ~3½–4½ hrs + overnight dry brine · Serves 6–8',
+    cardTag: 'Oven or Ninja · ~3½–4½ hrs + dry brine · Serves 6–8',
     title: "Steakhouse Garlic Butter Prime Rib",
+    calc: { label: 'Roast weight', unit: 'lb', min: 3, max: 15, step: 0.5, start: 6, pricePerUnit: 6.99, servingsPerUnit: [1, 1.5], minutesPerUnit: [30, 40], timeLabel: 'Slow roast at 250°F', footnote: 'Time excludes resting and the final sear. Always go by the thermometer.' },
     shopping: [
       { group: "Meat", items: ["5–6 lb bone-in beef rib roast (standing rib roast / prime rib)"] },
       { group: "Dairy", items: ["1 stick + 2 tbsp unsalted butter"] },
@@ -613,18 +621,52 @@ const recipes = [
       { group: "Homemade Au Jus", items: ["2 tbsp butter","1 shallot, finely chopped","Pan drippings from the roast (fat skimmed off)","2 cups beef stock","1 tbsp Worcestershire sauce","½ cup dry red wine (optional)","Salt and pepper to taste"] }
     ],
     steps: [
-      "THE NIGHT BEFORE: Pat the roast completely dry with paper towels. Season all sides with the kosher salt. Set it on a rack, uncovered, in the refrigerator overnight (dry brining).",
-      "Take the roast out of the refrigerator 45–60 minutes before cooking. Preheat the oven to 250°F.",
+      "DRY BRINE (1–3 days ahead; the day you buy it is perfect): Pat the roast completely dry. Salt all sides and leave it uncovered in the refrigerator. If it's already salted and chilling, skip to the next step and DON'T add more salt.",
+      "Take the roast out of the refrigerator 45–60 minutes before cooking. Preheat the oven to 250°F. NINJA: use Bake at 250°F with the rack in the lowest position. The roast needs about 1 inch of space on top; if it won't fit, use the oven.",
       "Make the garlic herb butter: mix the softened butter, garlic, olive oil, rosemary, thyme, Dijon, Worcestershire, black pepper, garlic powder, onion powder and smoked paprika into a thick paste.",
       "Rub the butter generously over the entire roast. Set it in a roasting pan, bones down and fat side up.",
       "Insert a thermometer into the thickest part, not touching the bone. Slow-roast at 250°F, about 30–40 minutes per pound (roughly 3–4 hours for 5–6 lbs). Go by temperature, not the clock.",
       "Pull the roast about 10°F BELOW your target temperature (see note). Tent loosely with foil and rest 20–30 minutes. Turn the oven up to 500°F.",
-      "Reverse sear: return the roast to the 500°F oven for 5–10 minutes, watching closely, until the crust is deep brown.",
+      "Reverse sear: return the roast to the 500°F oven for 5–10 minutes, watching closely, until the crust is deep brown. NINJA: Air Roast at 450°F (or its highest setting) for 6–10 minutes.",
       "Meanwhile, make the au jus: melt the butter in a saucepan and sauté the shallot 2–3 minutes. Add the skimmed pan drippings, beef stock, Worcestershire and wine (optional). Simmer 10–15 minutes, strain, and season with salt and pepper.",
       "Carve between the bones, then slice against the grain. Serve with the warm au jus.",
       "Serve with: roasted garlic mashed potatoes, Southern baked mac and cheese, garlic Parmesan asparagus, honey butter glazed carrots, creamy horseradish sauce and honey butter rolls."
     ],
     note: "Final temperatures: rare 120–125°F · medium rare 130–135°F · medium 140–145°F · medium well 150–155°F · well done 160°F+. The USDA recommends 145°F plus a 3-minute rest. Cost check: at $6.99/lb a 6 lb roast is about $42. Biggest tip: buy it the day before and dry-brine overnight. That's what gives it the steakhouse taste."
+  },
+
+  // ── 3a-g. CHARCOAL PRIME RIB (GRILL) ──────────
+  {
+    cookType: 'grill',
+    emoji: '🥩',
+    cardTag: 'Charcoal Grill · ~3½–4½ hrs · Two-zone reverse sear · Serves 6–8',
+    title: "Charcoal Reverse-Seared Prime Rib",
+    grillSetup: "Two-zone fire: coals banked on one side, the roast on the cool side. Hold 250–275°F with the lid closed (vents about half open). Add 1–2 chunks of oak or cherry wood for a light smoke. Have extra lit coals ready for the sear.",
+    calc: { label: 'Roast weight', unit: 'lb', min: 3, max: 15, step: 0.5, start: 6, pricePerUnit: 6.99, servingsPerUnit: [1, 1.5], minutesPerUnit: [30, 40], timeLabel: 'Indirect cook at 250–275°F', footnote: 'Grill temps drift, so trust the thermometer, not the clock.' },
+    shopping: [
+      { group: "Meat", items: ["5–6 lb bone-in beef rib roast (standing rib roast / prime rib)"] },
+      { group: "Dairy", items: ["1 stick + 2 tbsp unsalted butter"] },
+      { group: "Produce & Herbs", items: ["8+ cloves fresh garlic","Fresh rosemary","Fresh thyme","1 shallot"] },
+      { group: "Pantry & Spices", items: ["Olive oil","Dijon mustard","Worcestershire sauce","Coarse black pepper","Garlic powder","Onion powder","Smoked paprika","Kosher salt","2 cups beef stock","Dry red wine (optional)"] },
+      { group: "Grill Supplies", items: ["Charcoal","1–2 chunks oak or cherry wood","Leave-in probe thermometer","Disposable foil pan (catches drippings for the au jus)","Aluminum foil"] }
+    ],
+    ingredients: [
+      { group: "The Roast", items: ["5–6 lb bone-in beef rib roast, dry-brined with 1½ tbsp Morton kosher salt (1–3 days ahead)"] },
+      { group: "Garlic Herb Butter Crust", items: ["1 stick unsalted butter, softened","8 cloves garlic, minced","2 tbsp olive oil","2 tbsp fresh rosemary, chopped","1 tbsp fresh thyme, chopped","1 tbsp Dijon mustard","1 tbsp Worcestershire sauce","1 tbsp coarse black pepper","1 tbsp garlic powder","1 tbsp onion powder","1 tsp smoked paprika"] },
+      { group: "Au Jus (on the stove)", items: ["2 tbsp butter","1 shallot, finely chopped","Drippings from the foil pan, fat skimmed","2 cups beef stock","1 tbsp Worcestershire sauce","½ cup dry red wine (optional)"] }
+    ],
+    steps: [
+      "Dry brine 1–3 days ahead: salt all sides and chill uncovered. If it's already salted, don't add more.",
+      "Take the roast out 45–60 minutes before cooking. Rub the garlic herb butter all over it.",
+      "Light the grill for two-zone cooking. Add the wood chunks to the coals and stabilize at 250–275°F.",
+      "Set the roast bones-down on the cool side, over the foil pan, with the probe in the thickest part (not touching bone). Lid on, top vent over the meat.",
+      "Cook indirect about 30–40 minutes per pound. Rotate the roast halfway so both sides face the fire.",
+      "Pull it about 10°F below your target temperature. Tent with foil and rest 20–30 minutes while you add fresh coals and open the vents for high heat.",
+      "Sear over the hot coals 2–3 minutes per side, lid open, until a dark crust forms. Watch for flare-ups from the butter.",
+      "Make the au jus on the stove with the pan drippings, shallot, stock, Worcestershire and wine. Simmer 10–15 minutes and strain.",
+      "Carve between the bones, slice against the grain, and serve with the au jus."
+    ],
+    note: "Final temperatures: rare 120–125°F · medium rare 130–135°F · medium 140–145°F · well done 160°F+. The USDA recommends 145°F plus a 3-minute rest."
   },
 
   // ── 3b. SEAFOOD GUMBO — NO PORK (STOVETOP) ───
@@ -1028,7 +1070,38 @@ function showRecipe(index) {
     setupBox.innerHTML = '';
   }
 
+  renderCalc(r);
   switchTab('shopping');
+}
+
+// ─────────────────────────────────────────────
+// CALCULATOR (optional per recipe: add a `calc` block)
+// calc: { label, unit, min, max, step, start, pricePerUnit,
+//         minutesPerUnit:[lo,hi], servingsPerUnit:[lo,hi], timeLabel, footnote }
+// ─────────────────────────────────────────────
+function fmtHrs(min) { const h = Math.round(min / 30) / 2; return String(h); }
+function renderCalc(r) {
+  const box = document.getElementById('calc-box');
+  if (!r.calc) { box.innerHTML = ''; return; }
+  const c = r.calc;
+  box.innerHTML = `<div class="calc-box">
+    <strong class="calc-h">🧮 ${c.title || 'Cost & Cooking Calculator'}</strong>
+    <div>${c.label}: <b id="calc-val"></b></div>
+    <input type="range" id="calc-range" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.start}" oninput="updateCalc()" />
+    <div id="calc-out"></div>
+    ${c.footnote ? `<div class="calc-foot">${c.footnote}</div>` : ''}
+  </div>`;
+  updateCalc();
+}
+function updateCalc() {
+  const c = recipes[activeRecipe].calc;
+  const v = parseFloat(document.getElementById('calc-range').value);
+  document.getElementById('calc-val').textContent = v + ' ' + c.unit + (v === 1 ? '' : 's');
+  let rows = '';
+  if (c.pricePerUnit) rows += `<div class="calc-row"><span>Cost at $${c.pricePerUnit.toFixed(2)}/${c.unit}</span><b>$${(v * c.pricePerUnit).toFixed(2)}</b></div>`;
+  if (c.servingsPerUnit) rows += `<div class="calc-row"><span>Servings</span><b>${Math.floor(v * c.servingsPerUnit[0])}–${Math.ceil(v * c.servingsPerUnit[1])}</b></div>`;
+  if (c.minutesPerUnit) rows += `<div class="calc-row"><span>${c.timeLabel || 'Cook time'}</span><b>${fmtHrs(v * c.minutesPerUnit[0])}–${fmtHrs(v * c.minutesPerUnit[1])} hrs</b></div>`;
+  document.getElementById('calc-out').innerHTML = rows;
 }
 
 // ─────────────────────────────────────────────
