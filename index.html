@@ -606,6 +606,15 @@ const recipes = [
     cookType: 'oven',
     emoji: '🥩',
     cardTag: 'Oven or Ninja · ~3½–4½ hrs + dry brine · Serves 6–8',
+    image: '/images/prime-rib.jpeg',
+    gallery: [
+      { src: '/images/prime-rib-step1.jpeg', caption: '1. Dry brine: salt all sides, chill uncovered.' },
+      { src: '/images/prime-rib-step2.jpeg', caption: '2. Garlic herb butter: mix into a thick paste.' },
+      { src: '/images/prime-rib-step3.jpeg', caption: '3. Butter it all over, bones down, fat side up.' },
+      { src: '/images/prime-rib-step4.jpeg', caption: '4. Slow roast at 250°F with a thermometer in.' },
+      { src: '/images/prime-rib-step5.jpeg', caption: '5. Rest under foil 20–30 min.' },
+      { src: '/images/prime-rib-step6.jpeg', caption: '6. Sear hot for the steakhouse crust.' }
+    ],
     title: "Steakhouse Garlic Butter Prime Rib",
     calc: { label: 'Roast weight', unit: 'lb', min: 3, max: 15, step: 0.5, start: 6, pricePerUnit: 6.99, servingsPerUnit: [1, 1.5], minutesPerUnit: [30, 40], timeLabel: 'Slow roast at 250°F', footnote: 'Time excludes resting and the final sear. Always go by the thermometer.' },
     shopping: [
@@ -640,6 +649,7 @@ const recipes = [
     cookType: 'grill',
     emoji: '🥩',
     cardTag: 'Charcoal Grill · ~3½–4½ hrs · Two-zone reverse sear · Serves 6–8',
+    image: '/images/prime-rib-step6.jpeg',
     title: "Charcoal Reverse-Seared Prime Rib",
     grillSetup: "Two-zone fire: coals banked on one side, the roast on the cool side. Hold 250–275°F with the lid closed (vents about half open). Add 1–2 chunks of oak or cherry wood for a light smoke. Have extra lit coals ready for the sear.",
     calc: { label: 'Roast weight', unit: 'lb', min: 3, max: 15, step: 0.5, start: 6, pricePerUnit: 6.99, servingsPerUnit: [1, 1.5], minutesPerUnit: [30, 40], timeLabel: 'Indirect cook at 250–275°F', footnote: 'Grill temps drift, so trust the thermometer, not the clock.' },
